@@ -1,0 +1,33 @@
+{
+  "name": "wc-slider",
+  "version": "1.0.0",
+  "description": "Web Component Image Slider",
+  "main": "index.js",
+  "repository": "https://github.com/tristanMatthias/wc-image-slider.git",
+  "author": "Tristan Matthias <hello@tristanmatthias.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --hot"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "node-sass": "^4.7.2",
+    "raw-loader": "^0.5.1",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "css-raw-loader": "^0.1.2",
+    "eslint": "^4.12.0",
+    "eslint-plugin-prefer-object-spread": "^1.2.1",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.5"
+  }
+}
