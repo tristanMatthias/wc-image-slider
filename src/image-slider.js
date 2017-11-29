@@ -6,6 +6,7 @@ import css from './image-slider.scss';
 export default class ImageSlider extends HTMLElement {
     constructor() {
         super();
+        // Set the default prop values
         this._index = 0;
         this._time = '0.5s';
 
@@ -17,6 +18,8 @@ export default class ImageSlider extends HTMLElement {
         this.slider = this.shadow.querySelector('.slider');
     }
 
+    // Listen for changes to the dom attributes. When one of these attrs changes
+    // on the host element, it will trigger attrubuteChangedCallback
     static get observedAttributes() {
         return [
             'time'
@@ -24,10 +27,14 @@ export default class ImageSlider extends HTMLElement {
     }
 
     // -------------------------------------------------------------- Life-cycle
+    // When the host element is inserted into the DOM, start the sliding
     connectedCallback() {
-
         this.tick();
     }
+
+    // This function is automatically triggered every time an attribute on the
+    // element changes (NOTE: This does not trigger for properties, only
+    // attributes)
     attributeChangedCallback(attr, oldV, newV) {
         switch (attr) {
             case 'time':
@@ -36,12 +43,15 @@ export default class ImageSlider extends HTMLElement {
     }
 
     // -------------------------------------------------------------- Properties
+    // Get and set the time for fading and how long on each image
+    // When it's updated, the inline styling for transition-duration is set
     get time() { return this._time; }
     set time(v) {
         this._time = v;
         this.slider.style.transitionDuration = v;
     }
 
+    // Internal property for looping over the images
     get index() { return this._index; }
     set index(v) {
         this._index = v;
@@ -50,6 +60,7 @@ export default class ImageSlider extends HTMLElement {
         if (this._index < 0) this.index = this.childElementCount - 1;
     }
 
+    // Return the imported CSS wrapped in a style tag
     get style() {
         const style = document.createElement('style');
         style.innerHTML = css;
